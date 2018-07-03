@@ -14,7 +14,7 @@ class CapturePhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
     var photoData: Data?
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        
+        print("didFinishProcessingPhoto")
         if let error = error {
             print("Error capturing photo: \(error)")
         } else {
@@ -23,6 +23,7 @@ class CapturePhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
+        print("didFinishCaptureFor")
         guard let photoData = photoData else {
             print("No photo data resource")
             return

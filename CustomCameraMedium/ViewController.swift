@@ -46,11 +46,28 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onTapTakePhoto(_ sender: UIButton) {
+         print("capturePhotoOutput.maxBracketedCapturePhotoCount is \(capturePhotoOutput.maxBracketedCapturePhotoCount)")
         
-        let photoSettings = AVCapturePhotoSettings()
-        photoSettings.isAutoStillImageStabilizationEnabled = true
-        photoSettings.isHighResolutionPhotoEnabled = true
-        photoSettings.flashMode = .auto
+        let exposureValues: [Float] = [-1.5,-0.5,+0.5,+1.5]
+        let makeAutoExposureSettings = AVCaptureAutoExposureBracketedStillImageSettings.autoExposureSettings(exposureTargetBias:)
+        let exposureSettings = exposureValues.map(makeAutoExposureSettings)
+        
+        
+        
+        let photoSettings = AVCapturePhotoBracketSettings(rawPixelFormatType: 0,
+                                                          processedFormat: [AVVideoCodecKey : AVVideoCodecType.hevc],
+                                                          bracketedSettings: exposureSettings)
+        
+        photoSettings.isLensStabilizationEnabled =
+            self.capturePhotoOutput.isLensStabilizationDuringBracketedCaptureSupported
+        
+        
+        
+        
+//        let photoSettings = AVCapturePhotoSettings()
+//        photoSettings.isAutoStillImageStabilizationEnabled = true
+//        photoSettings.isHighResolutionPhotoEnabled = true
+//        photoSettings.flashMode = .auto
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: capturePhotoDelegate)
         
     }
