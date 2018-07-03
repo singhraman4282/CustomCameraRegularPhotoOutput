@@ -61,9 +61,6 @@ class ViewController: UIViewController {
         photoSettings.isLensStabilizationEnabled =
             self.capturePhotoOutput.isLensStabilizationDuringBracketedCaptureSupported
         
-        
-        
-        
 //        let photoSettings = AVCapturePhotoSettings()
 //        photoSettings.isAutoStillImageStabilizationEnabled = true
 //        photoSettings.isHighResolutionPhotoEnabled = true

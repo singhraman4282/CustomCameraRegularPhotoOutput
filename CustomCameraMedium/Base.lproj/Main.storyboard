@@ -25,7 +25,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEg-e7-NnB">
                                 <rect key="frame" x="151" y="724" width="73" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="KPU-pt-Xga"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="73" id="KPU-pt-Xga"/>
                                     <constraint firstAttribute="height" constant="34" id="qcJ-uQ-Blc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
