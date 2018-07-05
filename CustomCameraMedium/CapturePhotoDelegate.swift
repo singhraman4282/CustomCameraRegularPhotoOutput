@@ -31,12 +31,17 @@ class CapturePhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
         
         let capturedImage = UIImage.init(data: photoData , scale: 1.0)
         
+        let resizeManager = ResizeManager()
+        
+        let scaledCaptureImage = resizeManager.resizeImage(image: capturedImage, scaledTo: CGSize(width: (capturedImage?.size.width)!/10, height: (capturedImage?.size.height)!/10))
+        
         //SAVE ORIGINAL IMAGE
         let saveManager = SavePhotoManager()
-        saveManager.saveImageWithImageData(imageData: photoData)
+        saveManager.saveImage(image: scaledCaptureImage)
+//        saveManager.saveImageWithImageData(imageData: photoData)
         
         let exposureManager = ExposureManager()
-        exposureManager.applyManualExposure(toImage: capturedImage!)
+        exposureManager.applyManualExposure(toImage: scaledCaptureImage)
         
     }
     

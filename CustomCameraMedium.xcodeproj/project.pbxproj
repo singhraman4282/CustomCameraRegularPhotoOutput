@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F100CF0F20EE9024007E79B1 /* ResizeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F100CF0E20EE9024007E79B1 /* ResizeManager.swift */; };
 		F1F04A3E20EC2851007D82AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F04A3D20EC2851007D82AD /* AppDelegate.swift */; };
 		F1F04A4020EC2851007D82AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F04A3F20EC2851007D82AD /* ViewController.swift */; };
 		F1F04A4320EC2851007D82AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F04A4120EC2851007D82AD /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F100CF0E20EE9024007E79B1 /* ResizeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeManager.swift; sourceTree = "<group>"; };
 		F1F04A3A20EC2851007D82AD /* CustomCameraMedium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomCameraMedium.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F04A3D20EC2851007D82AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F04A3F20EC2851007D82AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				F1F04A5120EC341B007D82AD /* CapturePhotoDelegate.swift */,
 				F1F04B0920ED7172007D82AD /* SavePhotoManager.swift */,
 				F1F04B0720ED7120007D82AD /* ExposureManager.swift */,
+				F100CF0E20EE9024007E79B1 /* ResizeManager.swift */,
 				F1F04A4120EC2851007D82AD /* Main.storyboard */,
 				F1F04A4F20EC2987007D82AD /* PreviewView.swift */,
 				F1F04B1120ED807B007D82AD /* HDR.cpp */,
@@ -182,6 +185,7 @@
 				F1F04B1720ED807C007D82AD /* OpenCVWrapper.mm in Sources */,
 				F1F04B1620ED807C007D82AD /* UIImage+OpenCV.mm in Sources */,
 				F1F04A5020EC2987007D82AD /* PreviewView.swift in Sources */,
+				F100CF0F20EE9024007E79B1 /* ResizeManager.swift in Sources */,
 				F1F04B1920ED807C007D82AD /* UIImage+Rotate.m in Sources */,
 				F1F04B0820ED7120007D82AD /* ExposureManager.swift in Sources */,
 			);

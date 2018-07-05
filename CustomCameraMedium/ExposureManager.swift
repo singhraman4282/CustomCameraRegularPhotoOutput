@@ -21,7 +21,8 @@ class ExposureManager: NSObject {
             if imagesArray.count == 7 {
                 makeHDRfromImages(completion:  { () -> (Void) in
                     let saveManager = SavePhotoManager()
-                    saveManager.saveImage(image: self.rotateImageAppropriately(self.returnedImage)!)
+//                    saveManager.saveImage(image: self.rotateImageAppropriately(self.returnedImage)!)
+                    saveManager.saveImage(image: self.returnedImage)
                     print("Done")
                 })
             }
