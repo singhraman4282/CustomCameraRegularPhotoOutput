@@ -13,8 +13,8 @@ class CapturePhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
     
     var photoData: Data?
     
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        print("didFinishProcessingPhoto")
+    internal func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        print("CapturePhotoDelegate: didFinishProcessingPhoto")
         if let error = error {
             print("Error capturing photo: \(error)")
         } else {
@@ -22,16 +22,29 @@ class CapturePhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
         }
     }
     
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
-        print("didFinishCaptureFor")
+    internal func photoOutput(_ output: AVCapturePhotoOutput, didFinishCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings, error: Error?) {
+        print("CapturePhotoDelegate: didFinishCaptureFor")
         guard let photoData = photoData else {
             print("No photo data resource")
             return
         }
+        
         let capturedImage = UIImage.init(data: photoData , scale: 1.0)
-        if let image = capturedImage {
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        }
+        
+        //SAVE ORIGINAL IMAGE
+        let saveManager = SavePhotoManager()
+        saveManager.saveImageWithImageData(imageData: photoData)
+        
+        let exposureManager = ExposureManager()
+        exposureManager.applyManualExposure(toImage: capturedImage!)
         
     }
+    
 }
+
+
+
+/*
+ let saveManager = SavePhotoManager()
+ saveManager.saveImageWithImageData(imageData: photoData)
+ */

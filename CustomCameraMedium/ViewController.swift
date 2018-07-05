@@ -41,14 +41,24 @@ class ViewController: UIViewController {
         
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
         captureSession.addOutput(capturePhotoOutput)
-        
+        captureSession.sessionPreset = AVCaptureSession.Preset.iFrame960x540
+        print("capturePhotoOutput.maxBracketedCapturePhotoCount is \(capturePhotoOutput.maxBracketedCapturePhotoCount)")
         captureSession.startRunning()
     }
     
     @IBAction func onTapTakePhoto(_ sender: UIButton) {
+        
+        
+        
+        
+        /*
+         //FOR TAKING BRACKETED PHOTOS
+        print("captureSession.sessionPreset.hashValue: \(captureSession.sessionPreset.rawValue)")
+        
          print("capturePhotoOutput.maxBracketedCapturePhotoCount is \(capturePhotoOutput.maxBracketedCapturePhotoCount)")
         
-        let exposureValues: [Float] = [-1.5,-0.5,+0.5,+1.5]
+        
+        let exposureValues: [Float] = [-1.5,-0.5,+0.5,+1.5,]
         let makeAutoExposureSettings = AVCaptureAutoExposureBracketedStillImageSettings.autoExposureSettings(exposureTargetBias:)
         let exposureSettings = exposureValues.map(makeAutoExposureSettings)
         
@@ -59,12 +69,14 @@ class ViewController: UIViewController {
                                                           bracketedSettings: exposureSettings)
         
         photoSettings.isLensStabilizationEnabled =
-            self.capturePhotoOutput.isLensStabilizationDuringBracketedCaptureSupported
+            self.capturePhotoOutput.isLensStabilizationDuringBracketedCaptureSupported*/
         
-//        let photoSettings = AVCapturePhotoSettings()
-//        photoSettings.isAutoStillImageStabilizationEnabled = true
-//        photoSettings.isHighResolutionPhotoEnabled = true
-//        photoSettings.flashMode = .auto
+        
+        let photoSettings = AVCapturePhotoSettings()
+        photoSettings.isAutoStillImageStabilizationEnabled = true
+        photoSettings.isHighResolutionPhotoEnabled = true
+        photoSettings.flashMode = .off
+
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: capturePhotoDelegate)
         
     }
